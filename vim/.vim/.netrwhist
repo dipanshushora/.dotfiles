@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/deepanshu'
+let g:netrw_dirhist_6='/home/deepanshu/firstreactapp/src/js'
+let g:netrw_dirhist_5='/home/deepanshu/firstreactapp/src'
+let g:netrw_dirhist_4='/home/deepanshu/firstreactapp'
+let g:netrw_dirhist_3='/home/deepanshu'
+let g:netrw_dirhist_2='/home/deepanshu/firstreactapp'
+let g:netrw_dirhist_1='/home/deepanshu'
