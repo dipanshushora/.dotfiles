@@ -1,3 +1,4 @@
+"vim editor settings
 set nocompatible
 set showcmd
 set t_Co=256
@@ -60,14 +61,9 @@ nnoremap <leader>l :wincmd l<cr>
 nnoremap <C-j> :bp<cr>
 nnoremap <C-k> :bn<cr>
 
-"Adjust timeouts in milliseconds for matchparen highlighting:
-let g:matchup_matchparen_timeout = 2000
-let g:matchup_matchparen_insert_timeout = 400
-
 "Adjust delays in milliseconds for deferred highlighting:
-let g:matchup_matchparen_deferred_show_delay = 143
-let g:matchup_matchparen_deferred_hide_delay = 2000
-
+let g:matchup_matchparen_deferred_show_delay = 120
+let g:matchup_matchparen_deferred_hide_delay = 90
 
 " vim-plug and plugins
 call plug#begin('~/.vim/plugged')
@@ -96,6 +92,12 @@ let g:ctrlp_use_caching=0
 "enable delete surroundings
 "let g:matchup_surround_enabled = 1
 let g:matchup_matchparen_deferred = 1
+" displaying popup style matchups
+let g:matchup_matchparen_offscreen = {'method': 'popup'}
+
+"Adjust timeouts in milliseconds for matchparen highlighting:
+let g:matchup_matchparen_timeout = 200
+let g:matchup_matchparen_insert_timeout = 100
 
 " customizing the hightlight colors
 augroup matchup_matchparen_highlight
@@ -106,13 +108,18 @@ augroup matchup_matchparen_highlight
   autocmd ColorSCheme * hi MatchWordCur guifg=#98d1ce cterm=underline gui=underline
 augroup END
 
+
+
 " gruvbox theme
 let g:gruvbox_material_background = 'hard'
-colorscheme gruvbox-material
 let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_enable_italic = 1
+colorscheme gruvbox-material
 let g:gruvbox_material_better_performance = 1
 highlight ColorColumn ctermbg=0 guibg=#fe8019
+
+" vim transparent background
+"hi! Normal guibg=NONE ctermbg=NONE
 
 " remap for undotree toggle and creating directory for undo if not exist
 nnoremap <F5> : UndotreeToggle<CR>
@@ -178,7 +185,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
     \ quit | endif
 
 " install coc extensions 
-let g:coc_global_extensions = ['coc-css', 'coc-html', 'coc-tsserver', 'coc-json', 'coc-yaml', 'coc-prettier', 'coc-clangd']
+let g:coc_global_extensions = ['coc-css', 'coc-html', 'coc-tsserver', 'coc-json', 'coc-yaml', 'coc-prettier', 'coc-clangd', 'coc-pairs']
 
 " using tab trigger for coc for autocompletion
 inoremap <silent><expr> <TAB>
@@ -192,8 +199,8 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" Highlight the symbol and its references when holding the cursor. to use install [coc-highlight] package
+"autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
@@ -245,6 +252,4 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#show_tab_nr = 1
 
-" displaying popup style matchups
-let g:matchup_matchparen_offscreen = {'method': 'popup'}
 
