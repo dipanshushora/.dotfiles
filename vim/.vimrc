@@ -1,8 +1,10 @@
 "vim editor settings
+
 set nocompatible
 set showcmd
 set t_Co=256
 syntax enable
+filetype plugin on
 
 " vim editor set [options] 
 set number
@@ -80,34 +82,37 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'andymass/vim-matchup'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 " setting up plugins customization
+
 if executable('rg')
     let g:rg_dervice_root='true'
 endif
 
 let g:ctrlp_use_caching=0
 
-"enable delete surroundings
+" enable delete surroundings
 "let g:matchup_surround_enabled = 1
 let g:matchup_matchparen_deferred = 1
 " displaying popup style matchups
 let g:matchup_matchparen_offscreen = {'method': 'popup'}
 
-"Adjust timeouts in milliseconds for matchparen highlighting:
+" Adjust timeouts in milliseconds for matchparen highlighting:
 let g:matchup_matchparen_timeout = 200
 let g:matchup_matchparen_insert_timeout = 100
 
 " customizing the hightlight colors
 augroup matchup_matchparen_highlight
   autocmd!
-  autocmd ColorScheme * hi MatchParen guifg=#d26939 cterm=italic gui=italic
-  autocmd ColorSCheme * hi MatchParenCur guifg=#d26939 cterm=italic gui=italic
-  autocmd ColorSCheme * hi MatchWord guifg=#98d1ce cterm=underline gui=underline
-  autocmd ColorSCheme * hi MatchWordCur guifg=#98d1ce cterm=underline gui=underline
+  autocmd ColorScheme * hi MatchParen guifg=#d26939 cterm=underline gui=underline
 augroup END
 
+augroup matchup_matchword_highlight
+  autocmd!
+  autocmd ColorSCheme * hi MatchWord guifg=#98d1ce cterm=underline gui=underline
+augroup END
 
 
 " gruvbox theme
@@ -251,5 +256,4 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#show_tab_nr = 1
-
 
