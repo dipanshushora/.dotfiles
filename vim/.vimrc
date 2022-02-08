@@ -63,6 +63,13 @@ nnoremap <leader>l :wincmd l<cr>
 nnoremap <C-j> :bp<cr>
 nnoremap <C-k> :bn<cr>
 
+" starting server in browser
+nnoremap <leader>o :Bracey<cr>
+"  " stop server
+nnoremap <leader>s :BraceyStop<cr>
+" " reload server
+nnoremap <leader>r :BraceyReload<cr>
+
 "Adjust delays in milliseconds for deferred highlighting:
 let g:matchup_matchparen_deferred_show_delay = 120
 let g:matchup_matchparen_deferred_hide_delay = 90
@@ -83,6 +90,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'andymass/vim-matchup'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
+Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 call plug#end()
 
 " setting up plugins customization
@@ -257,3 +265,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#show_tab_nr = 1
 
+" bracey setting and keymaps
+let g:bracey_auto_start_browser = 1
+let g:bracey_refresh_on_save = 1
+let g:bracey_server_allow_remote_connections = 0
+let g:bracey_server_port=8080
+let g:bracey_server_path = 'http://localhost'
