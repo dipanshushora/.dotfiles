@@ -49,7 +49,7 @@ let g:netrw_banner = 0
 let g:netrw_winsize = 27
 
 "nnoremap <leader>pv :wincmd v<bar> :Ex <bar> : vertical resize 30 <cr> 
-nnoremap <leader>ps :Rg<space>
+" nnoremap <leader>ps :Rg<space>
 nnoremap <silent> <leader>+ :vertical resize +5<cr>
 nnoremap <silent> <leader>- :vertical resize -5<cr>
 
@@ -72,7 +72,7 @@ nnoremap <leader>r :BraceyReload<cr>
 
 "Adjust delays in milliseconds for deferred highlighting:
 let g:matchup_matchparen_deferred_show_delay = 120
-let g:matchup_matchparen_deferred_hide_delay = 90
+let g:matchup_matchparen_deferred_hide_delay = 400
 
 " vim-plug and plugins
 call plug#begin('~/.vim/plugged')
@@ -95,11 +95,11 @@ call plug#end()
 
 " setting up plugins customization
 
-if executable('rg')
-    let g:rg_dervice_root='true'
-endif
+" if executable('rg')
+"     let g:rg_dervice_root='true'
+" endif
 
-let g:ctrlp_use_caching=0
+" let g:ctrlp_use_caching=0
 
 " enable delete surroundings
 "let g:matchup_surround_enabled = 1
