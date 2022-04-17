@@ -40,7 +40,7 @@ set background=dark
 let mapleader = " "
 nnoremap confe :e $MYVIMRC<CR>
 nnoremap confr :source $MYVIMRC<CR>
-nnoremap <leader>t :terminal ++hidden<CR>
+nnoremap <leader>t :bot term ++rows=15<CR>
 nnoremap <C-n> :badd<space>
 
 " setting up remap for vertical resize
@@ -50,8 +50,12 @@ let g:netrw_winsize = 27
 
 "nnoremap <leader>pv :wincmd v<bar> :Ex <bar> : vertical resize 30 <cr> 
 " nnoremap <leader>ps :Rg<space>
-nnoremap <silent> <leader>+ :vertical resize +5<cr>
-nnoremap <silent> <leader>- :vertical resize -5<cr>
+nnoremap <silent> <leader>> :vertical resize +5<cr>
+nnoremap <silent> <leader>< :vertical resize -5<cr>
+nnoremap <leader>+ :resize +5<cr>
+nnoremap <leader>- :resize -5<cr>
+nnoremap <leader>= :wincmd =<cr>
+nnoremap <leader>_ :wincmd _<cr>
 
 " remapping keys for moving through window
 nnoremap <leader>h :wincmd h<cr>
