@@ -40,6 +40,7 @@ set background=dark
 let mapleader = " "
 nnoremap confe :e $MYVIMRC<CR>
 nnoremap confr :source $MYVIMRC<CR>
+" nnoremap <leader>t :let $VIM_DIR=expand('%:p:h')<CR>:bot term ++rows=15<CR>cd $VIM_DIR<CR>
 nnoremap <leader>t :bot term ++rows=15<CR>
 nnoremap <C-n> :badd<space>
 
