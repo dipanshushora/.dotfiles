@@ -131,7 +131,9 @@ augroup END
 " gruvbox theme
 let g:gruvbox_material_background = 'hard'
 let g:gruvbox_material_enable_bold = 1
+let g:gruvbox_material_transparent_background = 1
 let g:gruvbox_material_enable_italic = 1
+let g:gruvbox_material_ui_contrast = 'high'
 colorscheme gruvbox-material
 let g:gruvbox_material_better_performance = 1
 highlight ColorColumn ctermbg=0 guibg=#fe8019
