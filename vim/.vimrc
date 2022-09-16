@@ -190,12 +190,14 @@ nnoremap <C-f> :NERDTreeFind<CR>
 autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * NERDTree % | if argc() > 0 || exists("s:std_in") | wincmd p | endif
 
-"if argc() == 0 && !exists("s:std_in")
-"    autocmd VimEnter * NERDTree | wincmd p
-"else
-"    autocmd VimEnter * NERDTree % | wincmd p
-"endif
-"
+" if argc() == 0 && !exists("s:std_in")
+"     autocmd VimEnter * NERDTree | wincmd p
+" else
+"     autocmd VimEnter * NERDTree % | wincmd p
+" endif
+
+
+" Start NERDTree when Vim starts with a directory argument.
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
     \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
 
