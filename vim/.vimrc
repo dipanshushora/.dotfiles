@@ -40,9 +40,11 @@ set background=dark
 let mapleader = " "
 nnoremap confe :e $MYVIMRC<CR>
 nnoremap confr :source $MYVIMRC<CR>
+nnoremap <C-n> :badd<space>
+
+" terminal configuration for vim
 " nnoremap <leader>t :let $VIM_DIR=expand('%:p:h')<CR>:bot term ++rows=15<CR>cd $VIM_DIR<CR>
 nnoremap <leader>t :bot term ++rows=15<CR>
-nnoremap <C-n> :badd<space>
 
 " setting up remap for vertical resize
 let g:netrw_browse_split=2
@@ -76,8 +78,8 @@ nnoremap <leader>s :BraceyStop<cr>
 nnoremap <leader>r :BraceyReload<cr>
 
 "Adjust delays in milliseconds for deferred highlighting:
-let g:matchup_matchparen_deferred_show_delay = 120
-let g:matchup_matchparen_deferred_hide_delay = 400
+let g:matchup_matchparen_deferred_show_delay = 50
+let g:matchup_matchparen_deferred_hide_delay = 700
 
 " vim-plug and plugins
 call plug#begin('~/.vim/plugged')
@@ -276,8 +278,11 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#show_tab_nr = 1
 
+
 " bracey setting and keymaps
 let g:bracey_auto_start_browser = 0
 let g:bracey_server_allow_remote_connections = 0
-let g:bracey_server_port=8080
+let g:bracey_refresh_on_save = 1
+let g:bracey_eval_on_save = 1
+let g:bracey_server_port=19834
 let g:bracey_server_path = 'http://localhost'
