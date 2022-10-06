@@ -213,11 +213,11 @@ let g:coc_global_extensions = ['coc-css', 'coc-html', 'coc-tsserver', 'coc-json'
 
 " using tab trigger for coc for autocompletion
 
-inoremap <silent><expr> <TAB>
+inoremap <silent><expr> <leader><TAB>
       \ coc#pum#visible() ? coc#pum#next(1):
-      \ CheckBackspace() ? "\<Tab>" :
+      \ CheckBackspace() ? "\<leader><Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <expr><leader><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -262,7 +262,7 @@ endfunction
 nnoremap <leader>f :CocCommand prettier.formatFile<CR>
 
 " change default emmet key
-let g:user_emmet_expandabbr_key='<Tab>'
+" let g:user_emmet_expandabbr_key='<C-Tab>'
 
 " setting airline themes
 let g:airline_powerline_fonts = 1
