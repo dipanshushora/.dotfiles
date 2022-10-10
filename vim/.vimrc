@@ -39,6 +39,14 @@ set termguicolors
 "set cmdheight=2
 set background=dark
 
+                                                    " vim folding
+
+"create folding view when buffer leave window 
+autocmd BufWinLeave *.* mkview
+
+"open folding when buffer window open
+autocmd BufWinEnter *.* silent loadview
+
                                                     " remapping
 
 let mapleader = " "
