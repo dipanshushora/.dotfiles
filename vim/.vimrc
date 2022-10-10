@@ -1,4 +1,4 @@
-"vim editor settings
+                                                    " vim editor settings
 
 set nocompatible
 set showcmd
@@ -6,7 +6,8 @@ set t_Co=256
 syntax enable
 filetype plugin on
 
-" vim editor set [options] 
+                                                    " vim editor set [options] 
+
 set number
 set relativenumber
 set nohlsearch
@@ -20,13 +21,15 @@ set hidden
 set updatetime=100
 set tw=0
 
-" vim swap file backup and undodir
+                                                    " vim swap file backup and undodir
+                                                    
 set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
 set undofile
 
-" set gui options
+                                                    " set gui options
+                                                    
 set scrolloff=8
 set colorcolumn=160
 "highlight ColorColumn ctermbg=0 guibg=#fe8019
@@ -36,21 +39,23 @@ set termguicolors
 "set cmdheight=2
 set background=dark
 
-" remapping
+                                                    " remapping
+
 let mapleader = " "
 nnoremap confe :e $MYVIMRC<CR>
 nnoremap confr :source $MYVIMRC<CR>
 nnoremap <C-n> :badd<space>
 
-" terminal configuration for vim
+                                                    " terminal configuration for vim
+
 " nnoremap <leader>t :let $VIM_DIR=expand('%:p:h')<CR>:bot term ++rows=15<CR>cd $VIM_DIR<CR>
 nnoremap <leader>t :bot term ++rows=15<CR>
 
-" setting up remap for vertical resize
+                                                    " setting up remap for vertical resize
+
 let g:netrw_browse_split=2
 let g:netrw_banner = 0
 let g:netrw_winsize = 27
-
 "nnoremap <leader>pv :wincmd v<bar> :Ex <bar> : vertical resize 30 <cr> 
 " nnoremap <leader>ps :Rg<space>
 nnoremap <silent> <leader>> :vertical resize +5<cr>
@@ -60,16 +65,20 @@ nnoremap <leader>- :resize -5<cr>
 nnoremap <leader>= :wincmd =<cr>
 nnoremap <leader>_ :wincmd _<cr>
 
-" remapping keys for moving through window
+                                                    " remapping keys for moving through window
+
 nnoremap <leader>h :wincmd h<cr>
 nnoremap <leader>j :wincmd j<cr>
 nnoremap <leader>k :wincmd k<cr>
 nnoremap <leader>l :wincmd l<cr>
 
-" switch buffer window
+                                                    " switch buffer window
+
 nnoremap <C-j> :bp<cr>
 nnoremap <C-k> :bn<cr>
 
+                                                    " bracey.vim configuration
+                                                    
 " starting server in browser
 nnoremap <leader>o :Bracey<cr>
 "  " stop server
@@ -77,11 +86,14 @@ nnoremap <leader>s :BraceyStop<cr>
 " " reload server
 nnoremap <leader>r :BraceyReload<cr>
 
+                                                    " vim deferred value changes
+
 "Adjust delays in milliseconds for deferred highlighting:
 let g:matchup_matchparen_deferred_show_delay = 50
 let g:matchup_matchparen_deferred_hide_delay = 700
 
-" vim-plug and plugins
+                                                    " vim-plug and plugins
+
 call plug#begin('~/.vim/plugged')
 Plug 'sainnhe/gruvbox-material'
 Plug 'mbbill/undotree'
@@ -100,7 +112,7 @@ Plug 'tpope/vim-commentary'
 Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 call plug#end()
 
-" setting up plugins customization
+                                                    " setting up plugins customization
 
 " if executable('rg')
 "     let g:rg_dervice_root='true'
@@ -108,17 +120,20 @@ call plug#end()
 
 " let g:ctrlp_use_caching=0
 
-" enable delete surroundings
+                                                    " enable delete surroundings
+
 "let g:matchup_surround_enabled = 1
 let g:matchup_matchparen_deferred = 1
 " displaying popup style matchups
 let g:matchup_matchparen_offscreen = {'method': 'popup'}
 
-" Adjust timeouts in milliseconds for matchparen highlighting:
+                                                    " Adjust timeouts in milliseconds for matchparen highlighting:
+
 let g:matchup_matchparen_timeout = 200
 let g:matchup_matchparen_insert_timeout = 100
 
-" customizing the hightlight colors
+                                                    " customizing the hightlight colors
+
 augroup matchup_matchparen_highlight
   autocmd!
   autocmd ColorScheme * hi MatchParen guifg=#d26939 cterm=underline gui=underline
@@ -130,7 +145,8 @@ augroup matchup_matchword_highlight
 augroup END
 
 
-" gruvbox theme
+                                                    " gruvbox theme
+
 let g:gruvbox_material_background = 'hard'
 let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_transparent_background = 1
@@ -143,7 +159,8 @@ highlight ColorColumn ctermbg=0 guibg=#fe8019
 " vim transparent background
 "hi! Normal guibg=NONE ctermbg=NONE
 
-" remap for undotree toggle and creating directory for undo if not exist
+                                                    " remap for undotree toggle and creating directory for undo if not exist
+
 nnoremap <F5> : UndotreeToggle<CR>
 
 "if has("persistent_undo")
@@ -164,6 +181,8 @@ if !exists('g:undotree_WindowLayout')
     let g:undotree_WindowLayout = 2
 endif
 
+                                                    " vim devicons 
+
 " settings up icons
 let g:webdevicons_enable = 1
 " setting up nerd tree with icons
@@ -182,7 +201,8 @@ if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
 endif
 
-" nerd tree keymaps and shortcuts
+                                                    " nerd tree keymaps and shortcuts
+
 nnoremap <leader>n :NERDTreeFocus<CR>
 "nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
@@ -208,21 +228,25 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
+                                                    " coc configuration 
+
 " install coc extensions 
 let g:coc_global_extensions = ['coc-css', 'coc-html', 'coc-tsserver', 'coc-json', 'coc-yaml', 'coc-prettier', 'coc-clangd', 'coc-pairs']
 
 " using tab trigger for coc for autocompletion
 
-inoremap <silent><expr> <leader><TAB>
-      \ coc#pum#visible() ? coc#pum#next(1):
-      \ CheckBackspace() ? "\<leader><Tab>" :
-      \ coc#refresh()
-inoremap <expr><leader><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+function! CheckBackspace() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+  endfunction
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+  " Insert <tab> when previous text is space, refresh completion if not.
+
+  inoremap <silent><expr> <TAB>
+	\ coc#pum#visible() ? coc#pum#next(1):
+	\ CheckBackspace() ? "\<Tab>" :
+	\ coc#refresh()
+  inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " Highlight the symbol and its references when holding the cursor. to use install [coc-highlight] package
 "autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -232,8 +256,8 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Symbol renaming.
 nmap <F2> <Plug>(coc-rename)
@@ -257,21 +281,25 @@ function! s:show_documentation()
   endif
 endfunction
 
-" coc prettier commands
+                                                    " coc prettier commands
+
 "command! -nargs=0 Prettier :CocCommand prettier.formatFile
 nnoremap <leader>f :CocCommand prettier.formatFile<CR>
 
-" change default emmet key
-" let g:user_emmet_expandabbr_key='<C-Tab>'
+                                                    " change default emmet key
 
-" setting airline themes
+" let g:user_emmet_expandabbr_key='<Tab>'
+
+                                                    " setting airline themes
+
 let g:airline_powerline_fonts = 1
 let g:airline_theme='gruvbox_material'
 "let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
 "let g:airline_section_z = airline#section#create('%3p%% %#__accent_bold#%4l%#__restore__#%#__accent_bold#/%L%#__restore__# %3v')
 let g:airline_section_z = airline#section#create(['windowswap', 'obsession', '%p%%', 'colnr', 'linenr', 'maxlinenr'])
 
-" smarter tab line
+                                                    " smarter tab line
+
 let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -279,7 +307,8 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#show_tab_nr = 1
 
 
-" bracey setting and keymaps
+                                                    " bracey setting and keymaps
+
 let g:bracey_auto_start_browser = 0
 let g:bracey_server_allow_remote_connections = 0
 let g:bracey_refresh_on_save = 1
