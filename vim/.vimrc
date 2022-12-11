@@ -298,6 +298,13 @@ nnoremap <leader>f :CocCommand prettier.formatFile<CR>
 
 " let g:user_emmet_expandabbr_key='<Tab>'
 
+                                                    "emmet  settings
+" let g:user_emmet_settings = {
+" \  'javascript' : {
+" \      'extends' : 'jsx',
+" \  },
+" \}
+
                                                     " setting airline themes
 
 let g:airline_powerline_fonts = 1
