@@ -31,7 +31,7 @@ set undofile
                                                     " set gui options
                                                     
 set scrolloff=8
-set colorcolumn=160
+set colorcolumn=100
 "highlight ColorColumn ctermbg=0 guibg=#fe8019
 set signcolumn=yes
 set termguicolors
