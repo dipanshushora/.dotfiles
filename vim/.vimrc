@@ -87,12 +87,12 @@ nnoremap <C-k> :bn<cr>
 
                                                     " bracey.vim configuration
                                                     
-" starting server in browser
-nnoremap <leader>o :Bracey<cr>
-"  " stop server
-nnoremap <leader>s :BraceyStop<cr>
-" " reload server
-nnoremap <leader>r :BraceyReload<cr>
+" " starting server in browser
+" nnoremap <leader>o :Bracey<cr>
+" "  " stop server
+" nnoremap <leader>s :BraceyStop<cr>
+" " " reload server
+" nnoremap <leader>r :BraceyReload<cr>
 
                                                     " vim deferred value changes
 
@@ -117,7 +117,6 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'andymass/vim-matchup'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
-Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 call plug#end()
 
                                                     " setting up plugins customization
@@ -324,9 +323,9 @@ let g:airline#extensions#tabline#show_tab_nr = 1
 
                                                     " bracey setting and keymaps
 
-let g:bracey_auto_start_browser = 0
-let g:bracey_server_allow_remote_connections = 0
-let g:bracey_refresh_on_save = 1
-let g:bracey_eval_on_save = 1
-let g:bracey_server_port=19834
-let g:bracey_server_path = 'http://localhost'
+" let g:bracey_auto_start_browser = 0
+" let g:bracey_server_allow_remote_connections = 0
+" let g:bracey_refresh_on_save = 1
+" let g:bracey_eval_on_save = 1
+" let g:bracey_server_port=19834
+" let g:bracey_server_path = 'http://localhost'
