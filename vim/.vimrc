@@ -37,7 +37,7 @@ set signcolumn=yes
 set termguicolors
 "set showtabline=2
 "set cmdheight=2
-set background=dark
+set background=light
 
                                                     " vim folding
 
