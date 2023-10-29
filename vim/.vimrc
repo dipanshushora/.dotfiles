@@ -238,7 +238,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
                                                     " coc configuration 
 
 " install coc extensions 
-let g:coc_global_extensions = ['coc-css', 'coc-html', 'coc-tsserver', 'coc-json', 'coc-yaml', 'coc-prettier', 'coc-clangd', 'coc-pairs']
+let g:coc_global_extensions = ['coc-css', 'coc-html', 'coc-tsserver', 'coc-json', 'coc-yaml', 'coc-prettier', 'coc-clangd', 'coc-pairs', 'coc-phpls']
 
 " using tab trigger for coc for autocompletion
 
