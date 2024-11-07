@@ -31,7 +31,7 @@ set undofile
                                                     " set gui options
                                                     
 set scrolloff=8
-set colorcolumn=100
+set colorcolumn=150
 "highlight ColorColumn ctermbg=0 guibg=#fe8019
 set signcolumn=yes
 set termguicolors
@@ -54,10 +54,16 @@ nnoremap confe :e $MYVIMRC<CR>
 nnoremap confr :source $MYVIMRC<CR>
 nnoremap <C-n> :badd<space>
 
-                                                    " terminal configuration for vim
+                                                    " floatterm configuration for vim
 
-" nnoremap <leader>t :let $VIM_DIR=expand('%:p:h')<CR>:bot term ++rows=15<CR>cd $VIM_DIR<CR>
-nnoremap <leader>t :bot term ++rows=15<CR>
+nnoremap   <silent>   <F7>    :FloatermNew<CR>
+tnoremap   <silent>   <F7>    <C-\><C-n>:FloatermNew<CR>
+nnoremap   <silent>   <F8>    :FloatermPrev<CR>
+tnoremap   <silent>   <F8>    <C-\><C-n>:FloatermPrev<CR>
+nnoremap   <silent>   <F9>    :FloatermNext<CR>
+tnoremap   <silent>   <F9>    <C-\><C-n>:FloatermNext<CR>
+nnoremap   <silent>   <F12>   :FloatermToggle<CR>
+tnoremap   <silent>   <F12>   <C-\><C-n>:FloatermToggle<CR>
 
                                                     " setting up remap for vertical resize
 
@@ -85,15 +91,6 @@ nnoremap <leader>l :wincmd l<cr>
 nnoremap <C-j> :bp<cr>
 nnoremap <C-k> :bn<cr>
 
-                                                    " bracey.vim configuration
-                                                    
-" " starting server in browser
-" nnoremap <leader>o :Bracey<cr>
-" "  " stop server
-" nnoremap <leader>s :BraceyStop<cr>
-" " " reload server
-" nnoremap <leader>r :BraceyReload<cr>
-
                                                     " vim deferred value changes
 
 "Adjust delays in milliseconds for deferred highlighting:
@@ -117,6 +114,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'andymass/vim-matchup'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'voldikss/vim-floaterm'
 call plug#end()
 
                                                     " setting up plugins customization
@@ -238,7 +238,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
                                                     " coc configuration 
 
 " install coc extensions 
-let g:coc_global_extensions = ['coc-css', 'coc-html', 'coc-tsserver', 'coc-json', 'coc-yaml', 'coc-prettier', 'coc-clangd', 'coc-pairs', 'coc-phpls']
+let g:coc_global_extensions = ["coc-css", "coc-html", "coc-tsserver", "coc-json", "coc-yaml", "coc-clangd", "coc-pairs", "coc-prettier", "coc-xml", "coc-phpls", "coc-eslint", "coc-stylelint", "coc-vimlsp"]
 
 " using tab trigger for coc for autocompletion
 
@@ -247,13 +247,18 @@ function! CheckBackspace() abort
     return !col || getline('.')[col - 1]  =~ '\s'
   endfunction
 
-  " Insert <tab> when previous text is space, refresh completion if not.
+" Insert <tab> when previous text is space, refresh completion if not.
 
-  inoremap <silent><expr> <TAB>
+inoremap <silent><expr> <TAB>
 	\ coc#pum#visible() ? coc#pum#next(1):
 	\ CheckBackspace() ? "\<Tab>" :
 	\ coc#refresh()
-  inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
 
 " Highlight the symbol and its references when holding the cursor. to use install [coc-highlight] package
 "autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -288,21 +293,34 @@ function! s:show_documentation()
   endif
 endfunction
 
-                                                    " coc prettier commands
-
-"command! -nargs=0 Prettier :CocCommand prettier.formatFile
+"coc prettier commands
 nnoremap <leader>f :CocCommand prettier.formatFile<CR>
+
+
+" coc php configuration
+let g:coc_global_extensions += ['coc-phpls']
+
+
 
                                                     " change default emmet key
 
 " let g:user_emmet_expandabbr_key='<Tab>'
 
-                                                    "emmet  settings
+                                                    " emmet  settings
 " let g:user_emmet_settings = {
 " \  'javascript' : {
 " \      'extends' : 'jsx',
 " \  },
 " \}
+
+                                                    " fzf keymaps
+" Fuzzy find files in the current directory
+nnoremap <silent> <C-p> :Files<CR>
+" Fuzzy search for buffers
+nnoremap <silent> <C-b> :Buffers<CR>
+" Search for text in the current project
+nnoremap <silent> find :Rg<CR>
+
 
                                                     " setting airline themes
 
@@ -321,11 +339,3 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline#extensions#tabline#show_tab_nr = 1
 
 
-                                                    " bracey setting and keymaps
-
-" let g:bracey_auto_start_browser = 0
-" let g:bracey_server_allow_remote_connections = 0
-" let g:bracey_refresh_on_save = 1
-" let g:bracey_eval_on_save = 1
-" let g:bracey_server_port=19834
-" let g:bracey_server_path = 'http://localhost'
