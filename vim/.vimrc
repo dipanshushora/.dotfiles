@@ -114,8 +114,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'andymass/vim-matchup'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
 Plug 'voldikss/vim-floaterm'
 call plug#end()
 
@@ -238,7 +238,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
                                                     " coc configuration 
 
 " install coc extensions 
-let g:coc_global_extensions = ["coc-css", "coc-html", "coc-tsserver", "coc-json", "coc-yaml", "coc-clangd", "coc-pairs", "coc-prettier", "coc-xml", "coc-phpls", "coc-eslint", "coc-stylelint", "coc-vimlsp"]
+let g:coc_global_extensions = ["coc-css", "coc-html", "coc-tsserver", "coc-json", "coc-yaml", "coc-clangd", "coc-pairs", "coc-prettier", "coc-xml", "coc-eslint", "coc-stylelint"]
 
 " using tab trigger for coc for autocompletion
 
@@ -297,14 +297,14 @@ endfunction
 nnoremap <leader>f :CocCommand prettier.formatFile<CR>
 
 
-" coc php configuration
-let g:coc_global_extensions += ['coc-phpls']
+
 
 
 
                                                     " change default emmet key
 
 " let g:user_emmet_expandabbr_key='<Tab>'
+let g:user_emmet_expandabbr_key='<Leader>e'
 
                                                     " emmet  settings
 " let g:user_emmet_settings = {
@@ -315,11 +315,11 @@ let g:coc_global_extensions += ['coc-phpls']
 
                                                     " fzf keymaps
 " Fuzzy find files in the current directory
-nnoremap <silent> <C-p> :Files<CR>
+" nnoremap <silent> <C-p> :Files<CR>
 " Fuzzy search for buffers
-nnoremap <silent> <C-b> :Buffers<CR>
+" nnoremap <silent> <C-b> :Buffers<CR>
 " Search for text in the current project
-nnoremap <silent> find :Rg<CR>
+" nnoremap <silent> find :Rg<CR>
 
 
                                                     " setting airline themes
