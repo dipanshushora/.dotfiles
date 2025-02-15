@@ -1,10 +1,10 @@
                                                     " vim editor settings
 
+syntax enable
+filetype plugin on
 set nocompatible
 set showcmd
 set t_Co=256
-syntax enable
-filetype plugin on
 
                                                     " vim editor set [options] 
 
@@ -114,8 +114,8 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'andymass/vim-matchup'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'voldikss/vim-floaterm'
 call plug#end()
 
@@ -315,11 +315,11 @@ let g:user_emmet_expandabbr_key='<Leader>e'
 
                                                     " fzf keymaps
 " Fuzzy find files in the current directory
-" nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-p> :Files<CR>
 " Fuzzy search for buffers
-" nnoremap <silent> <C-b> :Buffers<CR>
+nnoremap <silent> <C-b> :Buffers<CR>
 " Search for text in the current project
-" nnoremap <silent> find :Rg<CR>
+nnoremap <silent> find :Rg<CR>
 
 
                                                     " setting airline themes
@@ -328,7 +328,7 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme='gruvbox_material'
 "let g:airline_section_z = airline#section#create(['windowswap', '%3p%% ', 'linenr', ':%3v'])
 "let g:airline_section_z = airline#section#create('%3p%% %#__accent_bold#%4l%#__restore__#%#__accent_bold#/%L%#__restore__# %3v')
-let g:airline_section_z = airline#section#create(['windowswap', 'obsession', '%p%%', 'colnr', 'linenr', 'maxlinenr'])
+" let g:airline_section_z = airline#section#create(['windowswap', 'obsession', '%p%%', 'colnr', 'linenr', 'maxlinenr'])
 
                                                     " smarter tab line
 
