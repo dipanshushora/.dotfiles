@@ -20,6 +20,9 @@ set incsearch
 set hidden
 set updatetime=100
 set tw=0
+set timeoutlen=300
+set ttimeoutlen=50
+
 
                                                     " vim swap file backup and undodir
                                                     
