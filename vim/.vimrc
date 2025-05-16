@@ -20,8 +20,8 @@ set incsearch
 set hidden
 set updatetime=100
 set tw=0
-set timeoutlen=300
-set ttimeoutlen=50
+set timeoutlen=1000
+set ttimeoutlen=-1
 
 
                                                     " vim swap file backup and undodir
@@ -307,7 +307,11 @@ nnoremap <leader>f :CocCommand prettier.formatFile<CR>
                                                     " change default emmet key
 
 " let g:user_emmet_expandabbr_key='<Tab>'
-let g:user_emmet_expandabbr_key='<Leader>e'
+" let g:user_emmet_expandabbr_key='<Leader>e'
+let g:user_emmet_expandabbr_key = ''
+let g:user_emmet_mode = 'n'
+nmap <leader>e <Plug>(emmet-expand-abbr)
+
 
                                                     " emmet  settings
 " let g:user_emmet_settings = {
