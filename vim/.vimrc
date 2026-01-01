@@ -157,7 +157,7 @@ augroup END
 
                                                     " gruvbox theme
 
-let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_background = 'light'
 let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_transparent_background = 1
 let g:gruvbox_material_enable_italic = 1
@@ -296,7 +296,15 @@ function! s:show_documentation()
   endif
 endfunction
 
-"coc prettier commands
+" 1. Format selected text (Visual Mode)
+xmap <leader>f <Plug>(coc-format-selected)
+
+" 2. Format the current symbol/object (Normal Mode)
+" This allows you to do <leader>f + motion (like 'ip' for inner paragraph)
+nmap <leader>f <Plug>(coc-format-selected)
+
+" 3. Your existing command to format the whole file using Prettier
+" Note: Keeping this will override the 'nmap' above if they use the same key.
 nnoremap <leader>f :CocCommand prettier.formatFile<CR>
 
 
