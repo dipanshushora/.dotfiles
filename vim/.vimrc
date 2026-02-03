@@ -40,7 +40,7 @@ set signcolumn=yes
 set termguicolors
 "set showtabline=2
 "set cmdheight=2
-set background=light
+set background=dark
 
                                                     " vim folding
 
@@ -157,7 +157,7 @@ augroup END
 
                                                     " gruvbox theme
 
-let g:gruvbox_material_background = 'light'
+let g:gruvbox_material_background = 'dark'
 let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_transparent_background = 1
 let g:gruvbox_material_enable_italic = 1
